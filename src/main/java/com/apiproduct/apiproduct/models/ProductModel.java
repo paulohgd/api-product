@@ -1,8 +1,8 @@
 package com.apiproduct.apiproduct.models;
 import jakarta.persistence.*;
-import java.util.UUID;
 import java.math.BigDecimal;
-import java.io.Serializable;
+import java.util.UUID;
+
 @Entity
 @Table(name = "tbProducts")
 public class ProductModel {
@@ -37,6 +37,4 @@ public class ProductModel {
         public void setValue(BigDecimal value) {
             this.value = value;
         }
-    }
-
 }

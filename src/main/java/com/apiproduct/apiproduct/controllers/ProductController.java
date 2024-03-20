@@ -1,11 +1,14 @@
 package com.apiproduct.apiproduct.controllers;
+
+import com.apiproduct.apiproduct.dtos.ProductRecord;
+import com.apiproduct.apiproduct.models.ProductModel;
+import com.apiproduct.apiproduct.repositories.ProductRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.apiproduct.apiproduct.dtos.ProductRecord;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +29,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(productRepository.findAll());
     }
     @GetMapping("/products/{id}")
-    public ResponseEntity<Object> getOneProduct(@PathVariable(value = "id")UUID id){
+    public ResponseEntity<Object> getOneProduct(@PathVariable(value = "id") UUID id){
         Optional<ProductModel> product0 = productRepository.findById(id);
         if(product0.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found");
@@ -35,7 +38,7 @@ public class ProductController {
     }
     @PutMapping("/products/{id}")
     public ResponseEntity<Object> updateProduct(@PathVariable(value = "id")UUID id,
-                                                @RequestBody @Valid ProductRecordDto productRecordDto){
+                                                @RequestBody @Valid ProductRecord.ProductRecordDto productRecordDto){
         Optional<ProductModel> product0 = productRepository.findById(id);
         if(product0.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found");
