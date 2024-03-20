@@ -1,7 +1,4 @@
 package com.apiproduct.apiproduct.controllers;
-import com.products.demo.dtos.ProductRecordDto;
-import com.products.demo.models.ProductModel;
-import com.products.demo.repositories.ProductRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
